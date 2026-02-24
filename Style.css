@@ -1,0 +1,393 @@
+:root {
+    --bg: #080808;
+    --card: #121212;
+    --accent: linear-gradient(135deg, #ff4d4d, #f9ca24); /* Gradasi sesuai referensi */
+    --text: #ffffff;
+    --muted: #888;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; overflow-x: hidden; }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 5%; }
+.section-pad { padding: 8rem 0; }
+
+/* NAVBAR */
+.navbar { position: fixed; width: 100%; top: 0; z-index: 1000; padding: 1.5rem 0; background: rgba(8,8,8,0.8); backdrop-filter: blur(15px); }
+.nav-box { display: flex; justify-content: space-between; align-items: center; }
+.logo { font-size: 1.5rem; font-weight: 900; color: white; text-decoration: none; }
+.logo span { color: #ff4d4d; }
+.nav-menu a { margin-left: 2rem; text-decoration: none; color: white; font-weight: 600; font-size: 0.9rem; }
+.btn-cta-nav { background: white; color: black !important; padding: 0.8rem 1.5rem; border-radius: 50px; }
+
+/* HERO */
+.hero { min-height: 100vh; display: flex; align-items: center; padding-top: 100px; }
+.hero-wrapper { display: flex; align-items: center; gap: 4rem; }
+.hero-content { flex: 1.2; }
+.hero-image { flex: 1; position: relative; border-radius: 30px; overflow: hidden; height: 550px; }
+.hero-image img { width: 100%; height: 100%; object-fit: cover; }
+.gradient-overlay { position: absolute; top: 0; width: 100%; height: 100%; background: linear-gradient(transparent, rgba(255, 77, 77, 0.4)); }
+
+.badge { color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: 2px; }
+h1 { font-size: clamp(3rem, 10vw, 6rem); font-weight: 900; line-height: 1; margin: 1rem 0; }
+h1 span { background: var(--accent); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.hero-desc { font-size: 1.1rem; color: var(--muted); max-width: 500px; margin-bottom: 3rem; }
+
+.hero-stats { display: flex; gap: 2rem; border-top: 1px solid #333; padding-top: 2rem; }
+.stat span { color: #ff4d4d; font-weight: 800; font-size: 0.8rem; }
+.stat p { font-weight: 700; font-size: 0.9rem; }
+
+/* TRUST BAR */
+.trust-bar { padding: 3rem 0; background: #111; }
+.trust-flex { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+.logos { display: flex; gap: 3rem; opacity: 0.5; font-weight: 800; text-transform: uppercase; font-size: 0.8rem; }
+
+/* PORTFOLIO GRID */
+.video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; }
+.video-card { background: var(--card); border-radius: 20px; overflow: hidden; border: 1px solid #222; }
+.video-box { position: relative; padding-bottom: 56.25%; height: 0; }
+.video-box iframe { position: absolute; width: 100%; height: 100%; border: none; }
+.video-info { padding: 1.5rem; }
+.video-info p { color: #ff4d4d; font-weight: 700; font-size: 0.75rem; }
+
+/* CAROUSEL */
+.carousel-box { position: relative; height: 600px; border-radius: 30px; overflow: hidden; }
+.photo-slide { display: none; width: 100%; height: 100%; }
+.photo-slide.active { display: block; animation: slideIn 0.8s ease; }
+.photo-slide img { width: 100%; height: 100%; object-fit: cover; }
+.slide-text { position: absolute; bottom: 40px; left: 40px; }
+
+/* RESPONSIVE HP */
+@media (max-width: 968px) {
+    .hero-wrapper { flex-direction: column; text-align: center; }
+    .hero-stats { justify-content: center; }
+    .nav-menu { display: none; }
+    .logos { gap: 1rem; justify-content: center; margin-top: 1rem; }
+}
+
+@keyframes slideIn { from { opacity: 0.5; transform: scale(1.05); } to { opacity: 1; transform: scale(1); } }
+/* === ABOUT SECTION STYLING === */
+.about-wrapper {
+    display: flex;
+    gap: 4rem;
+    align-items: flex-start;
+}
+
+.about-text {
+    flex: 1;
+}
+
+.subtitle {
+    color: #ff4d4d;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.85rem;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.about-text h2 {
+    font-size: 3rem;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.highlight-text {
+    font-size: 1.2rem;
+    color: white;
+    font-style: italic;
+    border-left: 4px solid #f9ca24;
+    padding-left: 1.5rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.body-text {
+    color: var(--muted);
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+.signature p {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0;
+}
+
+.signature span {
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+/* Bagian Kanan (Skills) */
+.about-skills {
+    flex: 0.8;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.skill-card {
+    background: #111;
+    padding: 1.5rem;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    border: 1px solid #222;
+    transition: 0.3s;
+}
+
+.skill-card:hover {
+    border-color: #ff4d4d;
+    transform: translateX(10px);
+}
+
+.icon-box {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #ff4d4d, #f9ca24);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: #000;
+}
+
+.skill-info {
+    flex: 1;
+}
+
+.skill-info h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+}
+
+.skill-info p {
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-bottom: 0.8rem;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 6px;
+    background: #333;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    background: linear-gradient(90deg, #ff4d4d, #f9ca24);
+    border-radius: 3px;
+}
+
+/* Statistik Mini */
+.stats-grid {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #222;
+}
+
+.mini-stat h4 {
+    font-size: 2rem;
+    color: white;
+    font-weight: 900;
+}
+
+.mini-stat span {
+    color: var(--muted);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* === FOOTER STYLING === */
+footer {
+    background: #050505; /* Lebih gelap dari body untuk kedalaman */
+    padding: 6rem 0 2rem;
+    border-top: 1px solid #1a1a1a;
+    margin-top: 4rem;
+}
+
+/* Footer Top (CTA) */
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4rem;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.footer-top h2 {
+    font-size: 3rem;
+    font-family: 'Playfair Display', serif;
+    line-height: 1.1;
+}
+
+.btn-footer {
+    background: white;
+    color: black;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 1.1rem;
+}
+
+.btn-footer:hover {
+    background: var(--accent); /* Mengambil warna gradasi global */
+    color: white;
+    transform: translateY(-5px);
+}
+
+.footer-divider {
+    width: 100%;
+    height: 1px;
+    background: #222;
+    margin-bottom: 4rem;
+}
+
+/* Footer Grid Layout */
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1.5fr 1fr; /* Kolom 1 lebih lebar */
+    gap: 3rem;
+    margin-bottom: 4rem;
+}
+
+.footer-logo {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: white;
+    text-decoration: none;
+    font-family: 'Playfair Display', serif;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.footer-logo span { color: #ff4d4d; }
+
+.footer-desc {
+    color: #888;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+.footer-col h4 {
+    color: white;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.footer-links, .footer-contact {
+    list-style: none;
+}
+
+.footer-links li, .footer-contact li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-links a {
+    color: #888;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 0.95rem;
+}
+
+.footer-links a:hover {
+    color: #ff4d4d;
+    padding-left: 5px; /* Efek geser saat hover */
+}
+
+.footer-contact li {
+    color: #888;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95rem;
+}
+
+.footer-contact i {
+    color: #ff4d4d;
+}
+
+/* Social Icons */
+.social-icons {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-icons a {
+    width: 40px;
+    height: 40px;
+    background: #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+    border: 1px solid #222;
+}
+
+.social-icons a:hover {
+    background: #ff4d4d;
+    transform: translateY(-5px);
+    border-color: #ff4d4d;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #1a1a1a;
+    padding-top: 2rem;
+    color: #555;
+    font-size: 0.85rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+/* Responsif Mobile */
+@media (max-width: 968px) {
+    .footer-grid {
+        grid-template-columns: 1fr; /* Jadi 1 kolom di HP */
+        gap: 2.5rem;
+    }
+    
+    .footer-top h2 {
+        font-size: 2rem;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* Responsif Mobile */
+@media (max-width: 968px) {
+    .about-wrapper {
+        flex-direction: column;
+        gap: 3rem;
+    }
+    .about-text h2 {
+        font-size: 2.5rem;
+    }
+    .skill-card:hover {
+        transform: translateY(-5px); /* Geser ke atas di HP */
+    }
+}
